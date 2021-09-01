@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { URL_REGISTER } from "../../config";
 
 export default function Register() {
-  const [credentials, setCredentials] = useState({
-    identifier: "",
+  const [create, setCreate] = useState({
+    username: "",
+    identifier:"",
     password: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:1337/auth/local/register", {
+      .post(URL_REGISTER, {
         username: "",
-        email: "",
+        identifier: "",
         password: "",
       })
       .then((response) => {
@@ -31,8 +33,8 @@ export default function Register() {
   const handleChange = ({ currentTarget }) => {
     console.log(currentTarget);
     const { value, name } = currentTarget;
-    setCredentials({
-      ...credentials,
+    setCreate({
+      ...create,
       [name]: value,
     });
   };
@@ -70,7 +72,7 @@ export default function Register() {
                   <input
                     className="form-group"
                     name="username"
-                    type="test"
+                    type="text"
                     placeholder="vendeur1"
                     onChange={handleChange}
                   />
@@ -82,7 +84,7 @@ export default function Register() {
                 <div>
                   <input
                     className="form-group"
-                    name="email"
+                    name="identifier"
                     type="email"
                     placeholder="love@movie.com"
                     onChange={handleChange}
@@ -99,7 +101,7 @@ export default function Register() {
                     placeholder="****************** "
                     className="form-group"
                     name="password"
-                    type="text"
+                    type="password"
                     onChange={handleChange}
                   />
                 </div>

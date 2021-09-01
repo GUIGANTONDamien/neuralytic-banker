@@ -6,8 +6,6 @@ export default function Connexion() {
   const [credentials, setCredentials] = useState({
     identifier: "",
     password: "",
-    mode: "cors",
-    credentials: "include",
   });
 
   const handleChange = ({ currentTarget }) => {
