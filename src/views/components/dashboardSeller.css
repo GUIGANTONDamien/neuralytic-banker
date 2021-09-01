@@ -1,0 +1,23 @@
+.button_dashboard.col {
+  width: 15% !important;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  color: red;
+  font-size: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_description_client {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.img_icon-title {
+  width: 40px;
+  height: 40px;
+}

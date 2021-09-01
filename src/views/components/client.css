@@ -1,0 +1,26 @@
+.container_description_client {
+  display: flex;
+}
+.description {
+  margin: 3%;
+}
+.card-header {
+  font-size: 25px;
+}
+.title {
+  text-align: center;
+  color: red;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 18px;
+  opacity: 0.5;
+}
+p {
+  font-weight: bold;
+}
+
+.card {
+  margin-right: 3%;
+}

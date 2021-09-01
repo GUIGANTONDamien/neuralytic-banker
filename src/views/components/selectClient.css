@@ -1,0 +1,19 @@
+.card_select {
+  width: 100%;
+  margin: 2%;
+}
+
+.container-select {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button_numberclient {
+  margin-top: 70px;
+}
+.button_bankaccountnumber {
+  margin-top: 10px;
+}
+.button_reconnaissancefacial {
+  margin-top: 17px;
+}
