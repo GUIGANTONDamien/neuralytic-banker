@@ -30,12 +30,10 @@ function Client(props) {
 
   useEffect(() => {
     console.log(name);
-    axios
-      .get(`${"http://localhost:1337/besoins-clients"}`)
-      .then((response) => {
-        console.log(response);
-        setBesoinsClient(response.data);
-      });
+    axios.get(`${"http://localhost:1337/besoins-clients"}`).then((response) => {
+      console.log(response);
+      setBesoinsClient(response.data);
+    });
   }, [name]);
 
   return (
@@ -92,28 +90,33 @@ function Client(props) {
               ))}
             </div>
             <div className="card_select">
-              {BesoinsClient.map((el) => (
-                <CCard key={el.id}>
-                  <CCardHeader>
-                    <strong>Prêt banquaire</strong>
-                  </CCardHeader>
-                  <CCardBody>
-                    <CRow>
-                      <CCol xs="12">
-                        <section>
-                          <div className="container_description_client">
-                            <li>
-                              <strong>Prêt {el.name}</strong>
-                            </li>
-                            <p>Montant max : {el.montantmax} $</p>
-                            <p>Duration max : {el.durationmax} ans</p>
-                          </div>
-                        </section>
-                      </CCol>
-                    </CRow>
-                  </CCardBody>
-                </CCard>
-              ))}
+              <CCard>
+                <CCardHeader>
+                  <strong>Prêt banquaire</strong>
+                </CCardHeader>
+
+                <CCardBody>
+                  {BesoinsClient.map((el) => (
+                    <div key={el.id}>
+                      <div>
+                        <CRow>
+                          <CCol xs="12">
+                            <section>
+                              <div className="container_description_client">
+                                <li>
+                                  <strong>Prêt {el.name}</strong>
+                                </li>
+                                <p>Montant max : {el.montantmax} $</p>
+                                <p>Duration max : {el.durationmax} ans</p>
+                              </div>
+                            </section>
+                          </CCol>
+                        </CRow>
+                      </div>
+                    </div>
+                  ))}
+                </CCardBody>
+              </CCard>
             </div>
           </div>
         </CCol>
