@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { CCard, CCardBody, CCardHeader, CCol, CRow } from "@coreui/react";
+import {
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CRow,
+  CLink,
+} from "@coreui/react";
+import { CButton } from "@coreui/react";
 import "./client.css";
 
 function Client(props) {
@@ -8,10 +17,18 @@ function Client(props) {
   const [BesoinsClient, setBesoinsClient] = useState([]);
   const { numberclient, bankaccountnumber, name } = props.match.params;
 
+  const history = useHistory();
+  const routeChange = () => {
+    let path = `/dashboard`;
+    history.push(path);
+  };
+
   useEffect(() => {
     if (numberclient) {
       axios
-        .get(`${"http://localhost:1337/Clients"}?numberclient=${numberclient}`)
+        .get(
+          `${"http://192.168.5.60:1337/Clients"}?Numberclient=${numberclient}`
+        )
         .then((response) => {
           console.log(response);
           setClient(response.data);
@@ -19,7 +36,7 @@ function Client(props) {
     } else {
       axios
         .get(
-          `${"http://localhost:1337/Clients"}?bankaccountnumber=${bankaccountnumber}`
+          `${"http://192.168.5.60:1337/Clients"}?Bankaccountnumber=${bankaccountnumber}`
         )
         .then((response) => {
           console.log(response.data);
@@ -29,11 +46,12 @@ function Client(props) {
   }, [numberclient, bankaccountnumber]);
 
   useEffect(() => {
-    console.log(name);
-    axios.get(`${"http://localhost:1337/besoins-clients"}`).then((response) => {
-      console.log(response);
-      setBesoinsClient(response.data);
-    });
+    axios
+      .get(`${"http://192.168.5.60:1337/Besoins-clients"}`)
+      .then((response) => {
+        console.log(response);
+        setBesoinsClient(response.data);
+      });
   }, [name]);
 
   return (
@@ -46,7 +64,7 @@ function Client(props) {
               {Client.map((el) => (
                 <CCard key={el.id}>
                   <CCardHeader>
-                    <strong>{el.name}</strong>
+                    <strong>{el.Name}</strong>
                   </CCardHeader>
                   <CCardBody>
                     <CRow>
@@ -59,7 +77,7 @@ function Client(props) {
                             </div>
                             <div className="description">
                               <h2>Number client</h2>
-                              <p>{el.numberclient}</p>
+                              <p>{el.Numberclient}</p>
                             </div>
                             <div className="description">
                               <h2>Number sons</h2>
@@ -104,10 +122,10 @@ function Client(props) {
                             <section>
                               <div className="container_description_client">
                                 <li>
-                                  <strong>Prêt {el.name}</strong>
+                                  <strong>Prêt {el.Name}</strong>
                                 </li>
-                                <p>Montant max : {el.montantmax} $</p>
-                                <p>Duration max : {el.durationmax} ans</p>
+                                <p>Montant max : {el.Montantmax} $</p>
+                                <p>Duration max : {el.Durationmax} ans</p>
                               </div>
                             </section>
                           </CCol>
@@ -122,7 +140,21 @@ function Client(props) {
         </CCol>
       </CRow>
       <div className="container_client">
-        <div></div>
+        <div className="button-client">
+          <CLink to="/dashboard">
+            <CButton
+              type="submit"
+              shape="pill"
+              color="dark"
+              onClick={routeChange}
+            >
+              Quitter la fiche client
+            </CButton>
+          </CLink>
+          <CButton type="submit" shape="pill" color="dark">
+            Imprimer la fiche client
+          </CButton>
+        </div>
       </div>
     </>
   );

@@ -22,7 +22,7 @@ function SelectClient() {
   };
 
   const handleChangeBankaccountnumber = (event) => {
-    setNumberclient(event.target.value);
+    setBankaccountnumber(event.target.value);
   };
 
   const handleNumberClient = (e) => {
@@ -140,11 +140,7 @@ function SelectClient() {
                       shape="pill"
                       color="dark"
                     >
-                      <img
-                        className="img_icon-title"
-                        src=""
-                        alt="iconIA"
-                      />{" "}
+                      <img className="img_icon-title" src="" alt="iconIA" />{" "}
                       Détection de la reconnaissance facial
                     </CButton>
                   </CCol>

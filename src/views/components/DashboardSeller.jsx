@@ -1,15 +1,21 @@
 import React from "react";
 import { CButton, CCol } from "@coreui/react";
+import { useHistory } from "react-router-dom";
 import "./dashboardSeller.css";
 
 function DashboardSeller() {
+  const history = useHistory();
+  const routeSelectClient = () => {
+    let path = `/selectclient`;
+    history.push(path);
+  };
+
   return (
     <div className="container_client">
       <div>
         <h1 className="title">
           Détection automatique d’opportunités de ventes grâce à l’intelligence
-          articielle {' '}
-          <img className="img_icon-title" src="" alt="iconIA" />
+          articielle <img className="img_icon-title" src="" alt="iconIA" />
         </h1>
       </div>
       <section>
@@ -17,7 +23,7 @@ function DashboardSeller() {
           <div>
             <h1>Risques et opportunités d'un client</h1>
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-              <CButton shape="pill" color="dark">
+              <CButton shape="pill" color="dark" onClick={routeSelectClient}>
                 Sélectionner un client
               </CButton>
             </CCol>
