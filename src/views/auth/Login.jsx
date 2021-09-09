@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import authAPI from "../services/authAPI";
+import AuthContext from "src/context/authContext";
 
-export default function Connexion() {
+const Login = () => {
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
     identifier: "",
     password: "",
   });
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const handleChange = ({ currentTarget }) => {
     console.log(currentTarget);
@@ -22,6 +25,8 @@ export default function Connexion() {
 
     try {
       await authAPI.authenticate(credentials);
+      setIsAuthenticated(true);
+      history.replace("admin");
     } catch (error) {
       console.log(error);
     }
@@ -72,12 +77,11 @@ export default function Connexion() {
                 <input className="submit" type="submit" value="Se connecter" />
               </div>
             </form>
-            <Link className="text-route" to="/">
-              <p>Pas de compte ? Inscrivez-vous.</p>
-            </Link>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Login;
