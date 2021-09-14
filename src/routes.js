@@ -1,7 +1,7 @@
 import React from "react";
 import SelectClient from "./views/components/SelectClient";
 
-const Dashboard = React.lazy(() => import("./views/components/Dashboard"));
+import Dashboard from "./views/components/Dashboard";
 const Client = React.lazy(() => import("./views/components/Client"));
 const Login = React.lazy(() => import("./views/auth/Login"));
 const Register = React.lazy(() => import("./views/auth/Register"));

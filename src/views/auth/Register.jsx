@@ -6,7 +6,7 @@ import { URL_REGISTER } from "../../config";
 export default function Register() {
   const [create, setCreate] = useState({
     username: "",
-    identifier:"",
+    email: "",
     password: "",
   });
 
@@ -14,9 +14,6 @@ export default function Register() {
     event.preventDefault();
     axios
       .post(URL_REGISTER, {
-        username: "",
-        identifier: "",
-        password: "",
       })
       .then((response) => {
         // Handle success.
@@ -84,9 +81,9 @@ export default function Register() {
                 <div>
                   <input
                     className="form-group"
-                    name="identifier"
+                    name="email"
                     type="email"
-                    placeholder="love@movie.com"
+                    placeholder="@"
                     onChange={handleChange}
                   />
                 </div>
@@ -111,7 +108,7 @@ export default function Register() {
                 <input className="submit" type="submit" value="S'incrire" />
               </div>
             </form>
-            <Link className="text-route" to="/connexion">
+            <Link className="text-route" to="/auth/local/login">
               <p>Déjà inscrit ? Connectez-vous</p>
             </Link>
           </div>

@@ -5,6 +5,9 @@ import authAPI from "./views/services/authAPI";
 import "./scss/style.scss";
 import PrivateRoute from "./views/components/PrivateRoute";
 import AdminPostsPage from "./views/components/AdminPostsPage";
+import TheLayout from "./containers/TheLayout";
+import Login from "./views/auth/Login";
+import Register from "./views/auth/Register";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -13,11 +16,8 @@ const loading = (
 );
 
 // Containers
-const TheLayout = React.lazy(() => import("./containers/TheLayout"));
 
 // Pages
-const Login = React.lazy(() => import("./views/auth/Login"));
-const Register = React.lazy(() => import("./views/auth/Register"));
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -28,23 +28,9 @@ function App() {
       <HashRouter>
         <React.Suspense fallback={loading}>
           <Switch>
-            <Route
-              exact
-              path="/login"
-              name="Login Page"
-              render={(props) => <Login {...props} />}
-            />
-            <Route
-              exact
-              path="/register"
-              name="Register Page"
-              render={(props) => <Register {...props} />}
-            />
-            <Route
-              path="/"
-              name="Home"
-              render={(props) => <TheLayout {...props} />}
-            />
+            <Route path="/" component={TheLayout} />
+            <Route exact path="/auth/local/login" component={Login} />
+            <Route exact path="/auth/local/register" component={Register} />
             <PrivateRoute path="/admin" component={AdminPostsPage} />
           </Switch>
         </React.Suspense>
