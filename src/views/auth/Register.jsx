@@ -6,14 +6,19 @@ import { URL_REGISTER } from "../../config";
 export default function Register() {
   const [create, setCreate] = useState({
     username: "",
-    email: "",
+    identifier: "",
     password: "",
+    email: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post(URL_REGISTER, {
+        username: create.username,
+        identifier: create.identifier,
+        password: create.password,
+        email: create.email,
       })
       .then((response) => {
         // Handle success.

@@ -1,0 +1,11 @@
+<?xml version="1.0"encoding="UTF-8"standalone="yes"?>
+</bd-client xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+
+	<enregistrement> 
+		<NOM>donnée</NOM> 
+		<NUM-CLIENT>donnée</NUM-CLIENT> 
+		<DATE-NAISSANCE>donnée</DATE-NAISSANCE> 
+    <EMAIL>donnée</EMAIL> 
+    <NUM-TEL>donnée</NUM-TEL> 
+	</enregistrement> 
+</bd-client>
