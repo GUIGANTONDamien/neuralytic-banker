@@ -28,8 +28,8 @@ function App() {
       <HashRouter>
         <React.Suspense fallback={loading}>
           <Switch>
-            <Route path="/" component={TheLayout} />
             <Route exact path="/auth/local/login" component={Login} />
+            <Route path="/" component={TheLayout} />
             <Route exact path="/auth/local/register" component={Register} />
             <PrivateRoute path="/admin" component={AdminPostsPage} />
           </Switch>

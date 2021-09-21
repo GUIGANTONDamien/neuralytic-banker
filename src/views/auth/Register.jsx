@@ -1,7 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { URL_REGISTER } from "../../config";
+import {
+  CButton,
+  CCard,
+  CCardBody,
+  CCol,
+  CContainer,
+  CForm,
+  CInput,
+  CInputGroup,
+  CInputGroupPrepend,
+  CInputGroupText,
+  CRow,
+} from "@coreui/react";
+import CIcon from "@coreui/icons-react";
+import "./register.css";
 
 export default function Register() {
   const [create, setCreate] = useState({
@@ -41,84 +56,98 @@ export default function Register() {
     });
   };
 
-  // const {user, setUser} = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   axios
-  //     .post("http://localhost:1337/auth/local/register", user)
-  //     .then((response) => {
-  //       JSON.stringify(response);
-  //     })
-  //     .catch((error) => JSON.stringify(error))
-
-  // };
-
   return (
-    <div>
-      <div className="container">
-        <div className="signup-content">
-          <div className="signup-form">
-            <h2 className="form-title">
-              Sign<span style={{ color: "red" }}>UP</span>
-            </h2>
-            <form className="register-form" onSubmit={handleSubmit}>
-              <div className="container-input">
+    <div className="c-app c-default-layout flex-row align-items-center">
+      <CContainer>
+        <CRow className="justify-content-center">
+          <CCol md="9" lg="7" xl="6">
+            <CCard className="mx-4">
+              <CCardBody className="p-4">
+                <CForm onSubmit={handleSubmit}>
+                  <h1>Register</h1>
+                  <p className="text-muted">Create your account</p>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupPrepend>
+                      <CInputGroupText>
+                        <CIcon name="cil-user" />
+                      </CInputGroupText>
+                    </CInputGroupPrepend>
+                    <CInput
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      autoComplete="username"
+                      onChange={handleChange}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupPrepend>
+                      <CInputGroupText>@</CInputGroupText>
+                    </CInputGroupPrepend>
+                    <CInput
+                      type="text"
+                      name="email"
+                      placeholder="Email"
+                      autoComplete="email"
+                      onChange={handleChange}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupPrepend>
+                      <CInputGroupText>
+                        <CIcon name="cil-lock-locked" />
+                      </CInputGroupText>
+                    </CInputGroupPrepend>
+                    <CInput
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      autoComplete="new-password"
+                      onChange={handleChange}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-4">
+                    <CInputGroupPrepend>
+                      <CInputGroupText>
+                        <CIcon name="cil-lock-locked" />
+                      </CInputGroupText>
+                    </CInputGroupPrepend>
+                    <CInput
+                      type="password"
+                      name="repeat password"
+                      placeholder="Repeat password"
+                      autoComplete="new-password"
+                      onChange={handleChange}
+                    />
+                  </CInputGroup>
+                  <CButton color="success" block type="submit">
+                    Create Account
+                  </CButton>
+                </CForm>
+              </CCardBody>
+              <CCardBody className="text-center">
                 <div>
-                  <h3>Username</h3>
+                  <h2>Sign in</h2>
+                  <p>
+                    If you already have an account, you can log in by clicking
+                    on "Login now"
+                  </p>
+                  <Link to="/auth/local/login">
+                    <CButton
+                      color="primary"
+                      className="mt-3"
+                      active
+                      tabIndex={-1}
+                    >
+                      Login Now!
+                    </CButton>
+                  </Link>
                 </div>
-                <div>
-                  <input
-                    className="form-group"
-                    name="username"
-                    type="text"
-                    placeholder="vendeur1"
-                    onChange={handleChange}
-                  />
-                </div>
-                <hr />
-                <div>
-                  <h3>Email</h3>
-                </div>
-                <div>
-                  <input
-                    className="form-group"
-                    name="email"
-                    type="email"
-                    placeholder="@"
-                    onChange={handleChange}
-                  />
-                </div>
-                <hr />
-              </div>
-              <div>
-                <div>
-                  <h3>Password</h3>
-                </div>
-                <div>
-                  <input
-                    placeholder="****************** "
-                    className="form-group"
-                    name="password"
-                    type="password"
-                    onChange={handleChange}
-                  />
-                </div>
-                <hr />
-              </div>
-              <div className="container-button">
-                <input className="submit" type="submit" value="S'incrire" />
-              </div>
-            </form>
-            <Link className="text-route" to="/auth/local/login">
-              <p>Déjà inscrit ? Connectez-vous</p>
-            </Link>
-          </div>
-        </div>
-      </div>
+              </CCardBody>
+            </CCard>
+          </CCol>
+        </CRow>
+      </CContainer>
     </div>
   );
 }

@@ -21,9 +21,6 @@ p {
   font-weight: bold;
 }
 
-.card {
-  margin-right: 3%;
-}
 .button-client {
   display: flex;
   justify-content: space-around;
