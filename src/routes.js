@@ -1,14 +1,12 @@
-import React from "react";
 import SelectClient from "./views/components/SelectClient";
-
-import Dashboard from "./views/components/Dashboard";
-const Client = React.lazy(() => import("./views/components/Client"));
-const Login = React.lazy(() => import("./views/auth/Login"));
-const Register = React.lazy(() => import("./views/auth/Register"));
+import Client from "./views/components/Client";
+import Login from "./views/auth/Login";
+import Register from "./views/auth/Register";
+import DashboardSeller from "./views/components/DashboardSeller";
 
 const routes = [
   { path: "/", exact: true, name: "Home" },
-  { path: "/dashboard", name: "Dashboard", component: Dashboard },
+  { path: "/dashboard", name: "Dashboard", component: DashboardSeller },
   {
     path: "/selectclient",
     name: "Select client",
