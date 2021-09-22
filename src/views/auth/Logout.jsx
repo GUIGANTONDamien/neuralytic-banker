@@ -1,9 +1,9 @@
 import React, { useState, history } from "react";
 import { Link } from "react-router-dom";
 
-function Logout(props) {
+function Logout(setUser) {
   // const userId = localStorage.getItem("authToken");
-  const {user, setUser} = useState("");
+  // const {user, setUser} = useState("");
 
   const handleLogout = (event) => {
     event.preventDefault();

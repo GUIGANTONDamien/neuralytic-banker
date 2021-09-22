@@ -15,10 +15,6 @@ const loading = (
   </div>
 );
 
-// Containers
-
-// Pages
-
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     authAPI.isAuthenticated
