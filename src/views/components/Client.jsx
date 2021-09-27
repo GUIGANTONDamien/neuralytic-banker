@@ -15,7 +15,8 @@ import "./client.css";
 function Client(props) {
   const [Client, setClient] = useState([]);
   const [BesoinsClient, setBesoinsClient] = useState([]);
-  const { numberclient, bankaccountnumber, name } = props.match.params;
+  const { numberclient, bankaccountnumber, name, lastname } =
+    props.match.params;
 
   const history = useHistory();
   const routeChange = () => {
@@ -47,6 +48,15 @@ function Client(props) {
 
   useEffect(() => {
     axios
+      .get(`${"http://192.168.5.60:1337/Clients"}?Lastname=${lastname}`)
+      .then((response) => {
+        console.log(response);
+        setClient(response.data);
+      });
+  }, [lastname]);
+
+  useEffect(() => {
+    axios
       .get(`${"http://192.168.5.60:1337/Besoins-clients"}`)
       .then((response) => {
         console.log(response);
@@ -64,7 +74,7 @@ function Client(props) {
               {Client.map((el) => (
                 <CCard key={el.id}>
                   <CCardHeader>
-                    <strong>{el.Name}</strong>
+                    <strong>{el.Firstname}</strong>
                   </CCardHeader>
                   <CCardBody>
                     <CRow>
@@ -80,8 +90,8 @@ function Client(props) {
                               <p>{el.Numberclient}</p>
                             </div>
                             <div className="description">
-                              <h2>Number sons</h2>
-                              <p>{el.numbersons}</p>
+                              <h2>Lastname</h2>
+                              <p>{el.lastname}</p>
                             </div>
                             <div className="description">
                               <h2>Phone number</h2>
