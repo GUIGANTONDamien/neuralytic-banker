@@ -7,9 +7,6 @@
   color: red;
   font-size: 30px;
   margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .container_description_client {
   display: flex;
@@ -20,4 +17,20 @@
 .img_icon-title {
   width: 40px;
   height: 40px;
+}
+
+.title-button {
+  margin-top: 3rem;
+  text-align: center;
+}
+.container-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.button {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
 }

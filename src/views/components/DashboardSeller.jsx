@@ -1,6 +1,7 @@
 import React from "react";
 import { CButton, CCol } from "@coreui/react";
 import { useHistory } from "react-router-dom";
+import iconIA from "../media/logo-IA.png";
 import "./dashboardSeller.css";
 
 function DashboardSeller() {
@@ -15,23 +16,35 @@ function DashboardSeller() {
       <div>
         <h1 className="title">
           Détection automatique d’opportunités de ventes grâce à l’intelligence
-          articielle <img className="img_icon-title" src="" alt="iconIA" />
+          articielle
+          <img className="img_icon-title" src={iconIA} alt="iconIA" />
         </h1>
       </div>
       <section>
         <div className="container_description_client">
           <div>
-            <h1>Risques et opportunités d'un client</h1>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-              <CButton shape="pill" color="dark" onClick={routeSelectClient}>
+            <h1 className="title-button">
+              Risques et opportunités d'un client
+            </h1>
+            <CCol className="container-button" col="6" sm="4" md="2" xl>
+              <CButton
+                className="button"
+                shape="pill"
+                color="dark"
+                onClick={routeSelectClient}
+              >
+                <img className="img_icon-title" src={iconIA} alt="iconIA" />
                 Sélectionner un client
               </CButton>
             </CCol>
           </div>
           <div>
-            <h1>Analyser tout le portefeuille client</h1>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-              <CButton shape="pill" color="dark">
+            <h1 className="title-button">
+              Analyser tout le portefeuille client
+            </h1>
+            <CCol className="container-button" col="6" sm="4" md="2" xl>
+              <CButton className="button" shape="pill" color="dark">
+                <img className="img_icon-title" src={iconIA} alt="iconIA" />
                 Editer tout le portefeuille clients
               </CButton>
             </CCol>

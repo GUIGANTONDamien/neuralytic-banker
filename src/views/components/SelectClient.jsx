@@ -15,6 +15,7 @@ import "./selectClient.css";
 function SelectClient() {
   const [numberclient, setNumberclient] = useState("");
   const [bankaccountnumber, setBankaccountnumber] = useState("");
+  const [lastname, setLastname] = useState("");
   const history = useHistory();
 
   const handleChangeNumberclient = (event) => {
@@ -23,6 +24,10 @@ function SelectClient() {
 
   const handleChangeBankaccountnumber = (event) => {
     setBankaccountnumber(event.target.value);
+  };
+
+  const handleChangeNameClient = (event) => {
+    setLastname(event.target.value);
   };
 
   const handleNumberClient = (e) => {
@@ -35,6 +40,13 @@ function SelectClient() {
     e.preventDefault();
     history.push(`/bankaccountnumber/${bankaccountnumber}`);
     setBankaccountnumber("");
+  };
+
+  const handleLastname = (e) => {
+    e.preventDefault();
+    console.log("hello")
+    history.push(`/client/lastname/${lastname}`);
+    setLastname("");
   };
 
   return (
@@ -105,21 +117,33 @@ function SelectClient() {
           <div className="card_select">
             <CCard>
               <CCardHeader>
-                <strong>Par nom, prénom, date de naissance :</strong>
+                <strong>Par nom :</strong>
               </CCardHeader>
               <CCardBody>
                 <CRow>
                   <CCol xs="12">
                     <CFormGroup>
-                      <CInput id="lastname" placeholder="Nom" required />
-                      <CInput id="firstname" placeholder="Prénom" required />
                       <CInput
-                        id="date"
-                        placeholder="Date de naissance"
+                        id="lastname"
+                        placeholder="Lastname"
+                        onChange={handleChangeNameClient}
+                        value={lastname}
                         required
                       />
+                      {/* <CInput
+                        id="firstname"
+                        placeholder="Firstname"
+                        onChange={handleChangeNameClient}
+                        value={nameClient}
+                        required
+                      /> */}
                     </CFormGroup>
-                    <CButton type="submit" shape="pill" color="dark">
+                    <CButton
+                      type="submit"
+                      shape="pill"
+                      color="dark"
+                      onClick={handleLastname}
+                    >
                       Rechercher
                     </CButton>
                   </CCol>
