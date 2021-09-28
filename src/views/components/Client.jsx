@@ -48,7 +48,7 @@ function Client(props) {
 
   useEffect(() => {
     axios
-      .get(`${"http://192.168.5.60:1337/Clients"}?Lastname=${lastname}`)
+      .get(`${"http://192.168.5.60:1337/Clients"}?lastname=${lastname}`)
       .then((response) => {
         console.log(response);
         setClient(response.data);

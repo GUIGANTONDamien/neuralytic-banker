@@ -10,6 +10,7 @@ import {
   CInput,
   CRow,
 } from "@coreui/react";
+import iconIA from "../media/logo-IA.png";
 import "./selectClient.css";
 
 function SelectClient() {
@@ -44,8 +45,7 @@ function SelectClient() {
 
   const handleLastname = (e) => {
     e.preventDefault();
-    console.log("hello")
-    history.push(`/client/lastname/${lastname}`);
+    history.push(`/lastname/${lastname}`);
     setLastname("");
   };
 
@@ -164,7 +164,7 @@ function SelectClient() {
                       shape="pill"
                       color="dark"
                     >
-                      <img className="img_icon-title" src="" alt="iconIA" />{" "}
+                      <img className="img_icon-title" src={iconIA} alt="iconIA" />{" "}
                       Détection de la reconnaissance facial
                     </CButton>
                   </CCol>
