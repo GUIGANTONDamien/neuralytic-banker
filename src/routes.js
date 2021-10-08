@@ -3,6 +3,7 @@ import Client from "./views/components/Client";
 import Login from "./views/auth/Login";
 import Register from "./views/auth/Register";
 import DashboardSeller from "./views/components/DashboardSeller";
+import AdminPostsPage from "./views/components/AdminPostsPage";
 
 const routes = [
   { path: "/", exact: true, name: "Home" },
@@ -40,6 +41,11 @@ const routes = [
     path: "/besoins-clients/:name",
     name: "Client",
     component: Client,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: AdminPostsPage,
   },
 ];
 

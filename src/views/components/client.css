@@ -1,5 +1,7 @@
 .container_description_client {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .description {
   margin: 3%;

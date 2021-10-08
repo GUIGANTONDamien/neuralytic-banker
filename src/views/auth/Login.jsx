@@ -41,7 +41,7 @@ const Login = () => {
     try {
       await authAPI.authenticate(credentials);
       setIsAuthenticated(true);
-      history.replace("admin");
+      history.replace("dashboard");
     } catch (error) {
       console.log(error);
     }

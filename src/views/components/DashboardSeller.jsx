@@ -21,7 +21,7 @@ function DashboardSeller() {
         </h1>
       </div>
       <section>
-        <div className="container_description_client">
+        <div className="container_description_dashboard">
           <div>
             <h1 className="title-button">
               Risques et opportunités d'un client
