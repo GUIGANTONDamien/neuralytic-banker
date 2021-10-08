@@ -27,9 +27,7 @@ function Client(props) {
   useEffect(() => {
     if (numberclient) {
       axios
-        .get(
-          `${"http://192.168.5.60:1337/Clients"}?Numberclient=${numberclient}`
-        )
+        .get(`${"http://192.168.5.60:1337/Clients"}?NUM_CLIENT=${numberclient}`)
         .then((response) => {
           console.log(response);
           setClient(response.data);
@@ -37,7 +35,7 @@ function Client(props) {
     } else {
       axios
         .get(
-          `${"http://192.168.5.60:1337/Clients"}?Bankaccountnumber=${bankaccountnumber}`
+          `${"http://192.168.5.60:1337/Clients"}?NUM_CB=${bankaccountnumber}`
         )
         .then((response) => {
           console.log(response.data);
@@ -48,7 +46,7 @@ function Client(props) {
 
   useEffect(() => {
     axios
-      .get(`${"http://192.168.5.60:1337/Clients"}?lastname=${lastname}`)
+      .get(`${"http://192.168.5.60:1337/Clients"}?Lastname=${lastname}`)
       .then((response) => {
         console.log(response);
         setClient(response.data);
@@ -69,12 +67,14 @@ function Client(props) {
       <CRow>
         <CCol>
           <h1 className="title">Risques et opportunités client</h1>
-          <div>
+          <div id="sectionAimprimer">
             <div className="card_select">
               {Client.map((el) => (
                 <CCard key={el.id}>
                   <CCardHeader>
-                    <strong>{el.Firstname}</strong>
+                    <strong>
+                      {el.Name} {el.Lastname}
+                    </strong>
                   </CCardHeader>
                   <CCardBody>
                     <CRow>
@@ -83,31 +83,27 @@ function Client(props) {
                           <div className="container_description_client">
                             <div className="description">
                               <h2>Email</h2>
-                              <p>{el.email}</p>
+                              <p>{el.EMAIL}</p>
                             </div>
                             <div className="description">
                               <h2>Number client</h2>
-                              <p>{el.Numberclient}</p>
-                            </div>
-                            <div className="description">
-                              <h2>Lastname</h2>
-                              <p>{el.lastname}</p>
+                              <p>{el.NUM_CLIENT}</p>
                             </div>
                             <div className="description">
                               <h2>Phone number</h2>
-                              <p>{el.phonenumber}</p>
+                              <p>{el.NUM_TEL}</p>
                             </div>
                             <div className="description">
-                              <h2>Age</h2>
-                              <p>{el.age}</p>
+                              <h2>Numéro de compte bancaire</h2>
+                              <p>{el.NUM_CB}</p>
                             </div>
                             <div className="description">
-                              <h2>Address</h2>
-                              <p>{el.address}</p>
+                              <h2>Date de naissance</h2>
+                              <p>{el.DATE_NAISSANCE}</p>
                             </div>
                             <div className="description">
-                              <h2>City</h2>
-                              <p>{el.city}</p>
+                              <h2>Numéro de téléphone</h2>
+                              <p>{el.NUM_TEL}</p>
                             </div>
                           </div>
                         </section>

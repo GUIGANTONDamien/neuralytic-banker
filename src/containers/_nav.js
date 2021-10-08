@@ -34,12 +34,6 @@ const _nav = [
     icon: "cil-drop",
   },
   {
-    _tag: "CSidebarNavItem",
-    name: "Fiche client",
-    to: "/selectclient/client",
-    icon: "cil-drop",
-  },
-  {
     _tag: "CSidebarNavTitle",
     _children: ["Paramètres"],
   },
